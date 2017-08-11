@@ -15,8 +15,41 @@ class ViewController: UIViewController {
     
     let app = UIApplication.shared.delegate as! AppDelegate
    
+    let loginObj = loginViewController()
+    
+    /////直接以a帳號登入用
+    @IBAction func aAccountLogin(_ sender: Any) {
+        app.mid = "kO2iktB0BHRkDEhZVn8ds0s3G572"
+       
+     go()
+        
+      
+    }
+    /////直接以s帳號登入用
+    @IBAction func sAccountLogin(_ sender: Any) {
+         app.mid = "PaN9703dbLZ5s13wEjopxXCLMu52"
+        go()
+        
+    }
     
     
+    @IBAction func QLogin(_ sender: Any) {
+        app.mid = "Bdsl773vHqTAVw4xwKQ2AsHRDKk1"
+        go()
+    }
+    
+    
+    
+    
+    ////直接登入用
+    func go(){
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "tabbarvc")
+        show(vc!, sender: self)
+    }
+   
+
+
     //大家可以回家的segue
     @IBAction func home(_sender:UIStoryboardSegue){
         
@@ -66,6 +99,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let app = UIApplication.shared.delegate as! AppDelegate
+
         self.loginView.isHidden = false
         self.registerView.isHidden = true
         

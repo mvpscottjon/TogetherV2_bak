@@ -18,6 +18,7 @@ struct GroupReviewItem {
     var userId: String
     var userEmail: String
     var createDate: String
+    //var nickname: String
     
     init(snapshot: DataSnapshot) {
         print(snapshot)
@@ -35,6 +36,7 @@ struct GroupReviewItem {
         self.userId = snapshotValue["userId"] as! String
         self.userEmail = snapshotValue["userEmail"] as! String
         self.createDate = snapshotValue["createDate"] as! String
+       // self.nickname = snapshotValue["nickname"] as! String
     }
     
 }

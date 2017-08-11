@@ -23,6 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var id:String?
     //togetherID 團名id
     var tid:String?
+    //////查詢我的揪團 所選到的tid使用
+    var myAllGroupSelectedTid:String?
+    
+    ///////選到的申請者mid
+     var whojoinGroupSelectApplyUserMid:String?
+    
+    var whojoinGroupSelectMaid:String?
+    
     
 //    var mastername:String?
 //    var sentToDetailId:String?

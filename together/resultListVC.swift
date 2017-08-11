@@ -10,6 +10,8 @@ import UIKit
 
 class resultListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    var app = UIApplication.shared.delegate as! AppDelegate
+
     @IBOutlet weak var tableView: UITableView!
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -17,46 +19,92 @@ class resultListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        let parentVC = parent as! resultMapListVC
+        return (parentVC.groupDict?.count)!
     }
     
+    
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultcell") as! resultListTbCell
         
-        cell.groupTitle.text = "DaBuIN"
-        cell.groupContent.text = "我的老天鵝啊"
-        cell.groupDistance.text = "100m"
-        cell.groupStatus.text = "Hot"
+//        cell.groupTitle.text = "DaBuIN"
+//        cell.groupContent.text = "我的老天鵝啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊"
+//        cell.groupStatus.text = "揪團中"
+//        cell.groupClass.text = "美食"
         
+        let parentVC = parent as! resultMapListVC
+        
+       
+//            cell.groupTitle.text = parentVC.groupDict?[indexPath.row]["subject"]
+        
+        ///先顯示 tid
+        cell.groupTitle.text = parentVC.groupDict?[indexPath.row]["tid"]
+//            cell.groupContent.text = parentVC.groupDict?[indexPath.row]["detail"]
+        cell.groupContent.text = parentVC.groupDict?[indexPath.row]["opengroupmid"]
+            cell.groupStatus.text = "Hot"
+            cell.groupClass.text = parentVC.groupDict?[indexPath.row]["class"]
+            
+       
+       
         
         return cell
     }
     
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "Gpdetail") as! Groupdetail
+        let parentVC = parent as! resultMapListVC
+        
+        app.tid = parentVC.groupDict?[indexPath.row]["tid"]
+        print("selected: \(app.tid)")
+        show(vc, sender: self)
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewDidAppear(animated)
         
+        testGroupDict()
+        sleep(1)
+        tableView.reloadData()
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func testGroupDict() {
+        
+        let parentVC = parent as! resultMapListVC
+        
+        if parentVC.groupDict != nil {
+            
+            print(parentVC.groupDict?.description)
+            
+            for group in parentVC.groupDict! {
+                for (key, value) in group {
+                    print("\(key): \(value)")
+                }
+            }
+        }
+        
     }
-    */
 
 }

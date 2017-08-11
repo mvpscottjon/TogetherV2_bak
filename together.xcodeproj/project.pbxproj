@@ -13,21 +13,28 @@
 		1428869D1F381C110047FA28 /* list24.png in Resources */ = {isa = PBXBuildFile; fileRef = 1428869C1F381C110047FA28 /* list24.png */; };
 		142886A01F381C8F0047FA28 /* profile24.png in Resources */ = {isa = PBXBuildFile; fileRef = 1428869E1F381C8F0047FA28 /* profile24.png */; };
 		142886A11F381C8F0047FA28 /* open24.png in Resources */ = {isa = PBXBuildFile; fileRef = 1428869F1F381C8F0047FA28 /* open24.png */; };
+		14424DAE1F3C659800E6C126 /* whoJoinMyOpenGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14424DAD1F3C659800E6C126 /* whoJoinMyOpenGroupVC.swift */; };
+		14424DB01F3C6D3C00E6C126 /* whojoinmyopengroupTBVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14424DAF1F3C6D3C00E6C126 /* whojoinmyopengroupTBVCell.swift */; };
+		14967EDE1F3BAC15004F4948 /* myAllOpenGroupTBVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14967EDD1F3BAC15004F4948 /* myAllOpenGroupTBVCell.swift */; };
+		14967EE01F3BB09E004F4948 /* myAllOpenGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14967EDF1F3BB09E004F4948 /* myAllOpenGroupVC.swift */; };
 		14AAD73E1F1C694F00BC6E9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AAD73D1F1C694F00BC6E9E /* AppDelegate.swift */; };
 		14AAD7401F1C694F00BC6E9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AAD73F1F1C694F00BC6E9E /* ViewController.swift */; };
 		14AAD7431F1C694F00BC6E9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14AAD7411F1C694F00BC6E9E /* Main.storyboard */; };
 		14AAD7451F1C694F00BC6E9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14AAD7441F1C694F00BC6E9E /* Assets.xcassets */; };
 		14AAD7481F1C694F00BC6E9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14AAD7461F1C694F00BC6E9E /* LaunchScreen.storyboard */; };
+		14B256651F3AD0C000084325 /* map24.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B256641F3AD0C000084325 /* map24.png */; };
 		14CBB69A1F341057006FA954 /* applyGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CBB6941F341057006FA954 /* applyGroupVC.swift */; };
 		14CBB69D1F341057006FA954 /* manageGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CBB6971F341057006FA954 /* manageGroupVC.swift */; };
 		14CBB69E1F341057006FA954 /* manageApplyViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CBB6981F341057006FA954 /* manageApplyViewVC.swift */; };
 		14CBB69F1F341057006FA954 /* manageGroupViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CBB6991F341057006FA954 /* manageGroupViewVC.swift */; };
 		14CBB6A41F341545006FA954 /* openGroupTbViCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CBB6A21F341545006FA954 /* openGroupTbViCell.swift */; };
 		14CBB6A51F341545006FA954 /* applyGroupTBVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CBB6A31F341545006FA954 /* applyGroupTBVCell.swift */; };
+		14CF3BA21F3CE1770046F932 /* tabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CF3BA11F3CE1770046F932 /* tabBarVC.swift */; };
+		14CF3BA41F3CF44D0046F932 /* whoJoinProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CF3BA31F3CF44D0046F932 /* whoJoinProfileVC.swift */; };
+		14CF3BA61F3CF74C0046F932 /* profile48.png in Resources */ = {isa = PBXBuildFile; fileRef = 14CF3BA51F3CF74C0046F932 /* profile48.png */; };
 		14F439541F1CA27D0060D839 /* openGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F439531F1CA27D0060D839 /* openGroupVC.swift */; };
 		1745F92F455B811D0C2306A6 /* Pods_together.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7C2700CBEA5CAD4EECE9FE /* Pods_together.framework */; };
 		4ACA6E481F1EF5C6002B1CA5 /* MyfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACA6E471F1EF5C6002B1CA5 /* MyfileViewController.swift */; };
-		4ACA6E4A1F1F3F0C002B1CA5 /* EditresumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACA6E491F1F3F0C002B1CA5 /* EditresumeView.swift */; };
 		84E0EC0B1F345085007D370F /* openGroupMapPickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0EC0A1F345085007D370F /* openGroupMapPickVC.swift */; };
 		84E0EC0D1F3475B6007D370F /* resultMapListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0EC0C1F3475B6007D370F /* resultMapListVC.swift */; };
 		84E0EC0F1F347BD2007D370F /* searchGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0EC0E1F347BD2007D370F /* searchGroupVC.swift */; };
@@ -35,7 +42,6 @@
 		84E0EC131F347CA8007D370F /* resultMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0EC121F347CA8007D370F /* resultMapVC.swift */; };
 		84E0EC151F347F9E007D370F /* resultListTbCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0EC141F347F9E007D370F /* resultListTbCell.swift */; };
 		F73D8F1D1F2A404D006951F7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F73D8F1C1F2A404D006951F7 /* GoogleService-Info.plist */; };
-		F73D8F1F1F2A4093006951F7 /* messageboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73D8F1E1F2A4093006951F7 /* messageboard.swift */; };
 		F74756571F2C5D0200AF3631 /* question.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F74756561F2C5D0200AF3631 /* question.jpg */; };
 		F74756591F2C734900AF3631 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74756581F2C734900AF3631 /* user.swift */; };
 		F747565B1F2C739D00AF3631 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F747565A1F2C739D00AF3631 /* Properties.swift */; };
@@ -44,7 +50,6 @@
 		F75B3E3B1F32325900ECC498 /* registerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B3E3A1F32325900ECC498 /* registerViewController.swift */; };
 		F768731C1F2F936B00C17849 /* GroupReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F768731B1F2F936B00C17849 /* GroupReviewTableViewCell.swift */; };
 		F7748D121F2CE565007CF316 /* Groupdetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7748D111F2CE565007CF316 /* Groupdetail.swift */; };
-		F7C1E84D1F2C819C00C13713 /* MsgtableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C1E84C1F2C819C00C13713 /* MsgtableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +59,10 @@
 		1428869C1F381C110047FA28 /* list24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list24.png; sourceTree = "<group>"; };
 		1428869E1F381C8F0047FA28 /* profile24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile24.png; sourceTree = "<group>"; };
 		1428869F1F381C8F0047FA28 /* open24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = open24.png; sourceTree = "<group>"; };
+		14424DAD1F3C659800E6C126 /* whoJoinMyOpenGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = whoJoinMyOpenGroupVC.swift; sourceTree = "<group>"; };
+		14424DAF1F3C6D3C00E6C126 /* whojoinmyopengroupTBVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = whojoinmyopengroupTBVCell.swift; sourceTree = "<group>"; };
+		14967EDD1F3BAC15004F4948 /* myAllOpenGroupTBVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myAllOpenGroupTBVCell.swift; sourceTree = "<group>"; };
+		14967EDF1F3BB09E004F4948 /* myAllOpenGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myAllOpenGroupVC.swift; sourceTree = "<group>"; };
 		14AAD73A1F1C694F00BC6E9E /* together.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = together.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14AAD73D1F1C694F00BC6E9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14AAD73F1F1C694F00BC6E9E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,17 +70,20 @@
 		14AAD7441F1C694F00BC6E9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14AAD7471F1C694F00BC6E9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14AAD7491F1C694F00BC6E9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14B256641F3AD0C000084325 /* map24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map24.png; sourceTree = "<group>"; };
 		14CBB6941F341057006FA954 /* applyGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = applyGroupVC.swift; sourceTree = "<group>"; };
 		14CBB6971F341057006FA954 /* manageGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = manageGroupVC.swift; sourceTree = "<group>"; };
 		14CBB6981F341057006FA954 /* manageApplyViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = manageApplyViewVC.swift; sourceTree = "<group>"; };
 		14CBB6991F341057006FA954 /* manageGroupViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = manageGroupViewVC.swift; sourceTree = "<group>"; };
 		14CBB6A21F341545006FA954 /* openGroupTbViCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = openGroupTbViCell.swift; sourceTree = "<group>"; };
 		14CBB6A31F341545006FA954 /* applyGroupTBVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = applyGroupTBVCell.swift; sourceTree = "<group>"; };
+		14CF3BA11F3CE1770046F932 /* tabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tabBarVC.swift; sourceTree = "<group>"; };
+		14CF3BA31F3CF44D0046F932 /* whoJoinProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = whoJoinProfileVC.swift; sourceTree = "<group>"; };
+		14CF3BA51F3CF74C0046F932 /* profile48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile48.png; sourceTree = "<group>"; };
 		14F439531F1CA27D0060D839 /* openGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = openGroupVC.swift; sourceTree = "<group>"; };
 		27CA076D43421851F4BB5085 /* Pods-together.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-together.release.xcconfig"; path = "Pods/Target Support Files/Pods-together/Pods-together.release.xcconfig"; sourceTree = "<group>"; };
 		42866690544DDE4F6930258B /* Pods-together.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-together.debug.xcconfig"; path = "Pods/Target Support Files/Pods-together/Pods-together.debug.xcconfig"; sourceTree = "<group>"; };
 		4ACA6E471F1EF5C6002B1CA5 /* MyfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyfileViewController.swift; sourceTree = "<group>"; };
-		4ACA6E491F1F3F0C002B1CA5 /* EditresumeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditresumeView.swift; sourceTree = "<group>"; };
 		84E0EC0A1F345085007D370F /* openGroupMapPickVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = openGroupMapPickVC.swift; sourceTree = "<group>"; };
 		84E0EC0C1F3475B6007D370F /* resultMapListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resultMapListVC.swift; sourceTree = "<group>"; };
 		84E0EC0E1F347BD2007D370F /* searchGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchGroupVC.swift; sourceTree = "<group>"; };
@@ -79,7 +91,6 @@
 		84E0EC121F347CA8007D370F /* resultMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resultMapVC.swift; sourceTree = "<group>"; };
 		84E0EC141F347F9E007D370F /* resultListTbCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resultListTbCell.swift; sourceTree = "<group>"; };
 		F73D8F1C1F2A404D006951F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		F73D8F1E1F2A4093006951F7 /* messageboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = messageboard.swift; sourceTree = "<group>"; };
 		F74756561F2C5D0200AF3631 /* question.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = question.jpg; sourceTree = "<group>"; };
 		F74756581F2C734900AF3631 /* user.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
 		F747565A1F2C739D00AF3631 /* Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
@@ -88,7 +99,6 @@
 		F75B3E3A1F32325900ECC498 /* registerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = registerViewController.swift; sourceTree = "<group>"; };
 		F768731B1F2F936B00C17849 /* GroupReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupReviewTableViewCell.swift; sourceTree = "<group>"; };
 		F7748D111F2CE565007CF316 /* Groupdetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Groupdetail.swift; sourceTree = "<group>"; };
-		F7C1E84C1F2C819C00C13713 /* MsgtableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgtableViewController.swift; sourceTree = "<group>"; };
 		FD7C2700CBEA5CAD4EECE9FE /* Pods_together.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_together.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -116,12 +126,14 @@
 		1428867B1F38049C0047FA28 /* imgs */ = {
 			isa = PBXGroup;
 			children = (
+				14B256641F3AD0C000084325 /* map24.png */,
 				1428869E1F381C8F0047FA28 /* profile24.png */,
 				1428869F1F381C8F0047FA28 /* open24.png */,
 				1428869C1F381C110047FA28 /* list24.png */,
 				142886961F3811BE0047FA28 /* home16.png */,
 				142886941F3811B80047FA28 /* home24.png */,
 				F74756561F2C5D0200AF3631 /* question.jpg */,
+				14CF3BA51F3CF74C0046F932 /* profile48.png */,
 			);
 			name = imgs;
 			sourceTree = "<group>";
@@ -151,7 +163,6 @@
 				14AAD73D1F1C694F00BC6E9E /* AppDelegate.swift */,
 				14AAD73F1F1C694F00BC6E9E /* ViewController.swift */,
 				F747565C1F2C7EA300AF3631 /* Msgviewitem.swift */,
-				F7C1E84C1F2C819C00C13713 /* MsgtableViewController.swift */,
 				F74756581F2C734900AF3631 /* user.swift */,
 				F747565A1F2C739D00AF3631 /* Properties.swift */,
 				14AAD7411F1C694F00BC6E9E /* Main.storyboard */,
@@ -164,8 +175,6 @@
 				F75B3E3A1F32325900ECC498 /* registerViewController.swift */,
 				F7748D111F2CE565007CF316 /* Groupdetail.swift */,
 				F75B3E381F32320F00ECC498 /* loginViewController.swift */,
-				F73D8F1E1F2A4093006951F7 /* messageboard.swift */,
-				4ACA6E491F1F3F0C002B1CA5 /* EditresumeView.swift */,
 				4ACA6E471F1EF5C6002B1CA5 /* MyfileViewController.swift */,
 				14AAD7441F1C694F00BC6E9E /* Assets.xcassets */,
 				14AAD7461F1C694F00BC6E9E /* LaunchScreen.storyboard */,
@@ -178,8 +187,14 @@
 				F768731B1F2F936B00C17849 /* GroupReviewTableViewCell.swift */,
 				14CBB6941F341057006FA954 /* applyGroupVC.swift */,
 				14CBB6971F341057006FA954 /* manageGroupVC.swift */,
-				14CBB6981F341057006FA954 /* manageApplyViewVC.swift */,
 				14CBB6991F341057006FA954 /* manageGroupViewVC.swift */,
+				14CBB6981F341057006FA954 /* manageApplyViewVC.swift */,
+				14967EDF1F3BB09E004F4948 /* myAllOpenGroupVC.swift */,
+				14424DAD1F3C659800E6C126 /* whoJoinMyOpenGroupVC.swift */,
+				14CF3BA31F3CF44D0046F932 /* whoJoinProfileVC.swift */,
+				14967EDD1F3BAC15004F4948 /* myAllOpenGroupTBVCell.swift */,
+				14424DAF1F3C6D3C00E6C126 /* whojoinmyopengroupTBVCell.swift */,
+				14CF3BA11F3CE1770046F932 /* tabBarVC.swift */,
 			);
 			path = together;
 			sourceTree = "<group>";
@@ -257,12 +272,14 @@
 			files = (
 				F74756571F2C5D0200AF3631 /* question.jpg in Resources */,
 				142886A01F381C8F0047FA28 /* profile24.png in Resources */,
+				14B256651F3AD0C000084325 /* map24.png in Resources */,
 				14AAD7481F1C694F00BC6E9E /* LaunchScreen.storyboard in Resources */,
 				142886951F3811B80047FA28 /* home24.png in Resources */,
 				F73D8F1D1F2A404D006951F7 /* GoogleService-Info.plist in Resources */,
 				142886A11F381C8F0047FA28 /* open24.png in Resources */,
 				1428869D1F381C110047FA28 /* list24.png in Resources */,
 				14AAD7451F1C694F00BC6E9E /* Assets.xcassets in Resources */,
+				14CF3BA61F3CF74C0046F932 /* profile48.png in Resources */,
 				142886971F3811BE0047FA28 /* home16.png in Resources */,
 				14AAD7431F1C694F00BC6E9E /* Main.storyboard in Resources */,
 			);
@@ -325,10 +342,11 @@
 			files = (
 				14CBB69F1F341057006FA954 /* manageGroupViewVC.swift in Sources */,
 				F75B3E391F32320F00ECC498 /* loginViewController.swift in Sources */,
+				14967EE01F3BB09E004F4948 /* myAllOpenGroupVC.swift in Sources */,
+				14CF3BA41F3CF44D0046F932 /* whoJoinProfileVC.swift in Sources */,
 				84E0EC0F1F347BD2007D370F /* searchGroupVC.swift in Sources */,
 				F747565B1F2C739D00AF3631 /* Properties.swift in Sources */,
 				14CBB6A51F341545006FA954 /* applyGroupTBVCell.swift in Sources */,
-				F73D8F1F1F2A4093006951F7 /* messageboard.swift in Sources */,
 				F75B3E3B1F32325900ECC498 /* registerViewController.swift in Sources */,
 				14CBB69D1F341057006FA954 /* manageGroupVC.swift in Sources */,
 				14CBB69E1F341057006FA954 /* manageApplyViewVC.swift in Sources */,
@@ -336,15 +354,17 @@
 				14AAD73E1F1C694F00BC6E9E /* AppDelegate.swift in Sources */,
 				F7748D121F2CE565007CF316 /* Groupdetail.swift in Sources */,
 				4ACA6E481F1EF5C6002B1CA5 /* MyfileViewController.swift in Sources */,
+				14424DB01F3C6D3C00E6C126 /* whojoinmyopengroupTBVCell.swift in Sources */,
 				14CBB6A41F341545006FA954 /* openGroupTbViCell.swift in Sources */,
 				84E0EC131F347CA8007D370F /* resultMapVC.swift in Sources */,
+				14424DAE1F3C659800E6C126 /* whoJoinMyOpenGroupVC.swift in Sources */,
 				F74756591F2C734900AF3631 /* user.swift in Sources */,
-				4ACA6E4A1F1F3F0C002B1CA5 /* EditresumeView.swift in Sources */,
+				14967EDE1F3BAC15004F4948 /* myAllOpenGroupTBVCell.swift in Sources */,
 				84E0EC0D1F3475B6007D370F /* resultMapListVC.swift in Sources */,
 				84E0EC151F347F9E007D370F /* resultListTbCell.swift in Sources */,
 				14CBB69A1F341057006FA954 /* applyGroupVC.swift in Sources */,
 				F747565D1F2C7EA300AF3631 /* Msgviewitem.swift in Sources */,
-				F7C1E84D1F2C819C00C13713 /* MsgtableViewController.swift in Sources */,
+				14CF3BA21F3CE1770046F932 /* tabBarVC.swift in Sources */,
 				F768731C1F2F936B00C17849 /* GroupReviewTableViewCell.swift in Sources */,
 				84E0EC111F347C76007D370F /* resultListVC.swift in Sources */,
 				14F439541F1CA27D0060D839 /* openGroupVC.swift in Sources */,

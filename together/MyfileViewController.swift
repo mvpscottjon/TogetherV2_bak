@@ -19,76 +19,37 @@ class MyfileViewController: UIViewController, UIImagePickerControllerDelegate, U
     var groupimg:Array<String> = []
     var images = [UIImage]()
     var subject:Array<String> = []
-    
+    var temptid:Array<String> = []
+    var Myfilemid:String?
+    @IBOutlet weak var takepictureBtn: UIButton!
+    //@IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var nameText: UITextField!
     @IBOutlet weak var groupname: UILabel!
     @IBOutlet weak var mygroupControl: UIPageControl!
     @IBOutlet weak var Mygroupimage: UIImageView!
     @IBOutlet weak var testlabel: UITextView!
-    @IBAction func editBtn(_ sender: Any) {
+    
+    
+    @IBAction func SaveinfoBtn(_ sender: Any) {
         
         let nickname = nameText.text!
         let description = testlabel.text!
-        
-        let q = DispatchQueue.global()
-        q.sync {
-            do {
-                
-                let url = URL(string: "https://together-seventsai.c9users.io/resumeEdit.php")
-                let session = URLSession(configuration: .default)
-                var request = URLRequest(url:url!)
-                request.httpBody = "account=\(self.app.account!)&nickname=\(nickname)&description=\(description)".data(using: .utf8)
-                request.httpMethod = "POST"
-                
-                let task = session.dataTask(with: request, completionHandler: {(data, response , error) in
-                    
-                    
-                    
-                    
-                    if  error != nil {
-                        print("gg")
-                    }else{
-                        print("success")
-                        
-                    }
-                    
-                    
-                })
-                
-                
-                task.resume()
-                
-                
-            }catch{
-                print(error)
-            }
-
-        }
-        q.async {
-            sleep(1)
-            self.loadDB()
-        }
-        
-    }
-
-    
-    @IBOutlet weak var imageView: UIImageView!
-    
-    @IBOutlet weak var nameText: UITextField!
-    
-    @IBAction func loaddetail(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "Gpdetail")
-        show(vc!, sender: self)
-        
-        
-    }
-    
-    @IBAction func uploadsubmit(_ sender: Any) {
-        
-        personalpic = imgDataBase64String
+        let mid = app.mid!
+        //print("note\(mid)")
         let url = URL(string: "https://together-seventsai.c9users.io/personalfileSavePic.php")
         let session = URLSession(configuration: .default)
         var req = URLRequest(url: url!)
-        req.httpBody = "account=\(app.account!)&data=\(personalpic!)".data(using:.utf8)
+        personalpic = imgDataBase64String
+        //如果personalpic != nil 傳data參數至後端
+        if personalpic != nil {
+            req.httpBody = "mid=\(mid)&data=\(personalpic!)&nickname=\(nickname)&description=\(description)".data(using: .utf8)
+            print("has photo")
+        }else {
+            ////如果沒有選照片 personalpic = nil 則傳送data空字串參數至後端
+            req.httpBody = "mid=\(mid)&nickname=\(nickname)&description=\(description)".data(using: .utf8)
+            print("no photo")
+        }
+        //        req.httpBody = "account=\(app.account!)&data=\(personalpic!)".data(using:.utf8)
         req.httpMethod = "POST"
         let task = session.dataTask(with: req, completionHandler: {(data,response,error) in
             if error == nil {
@@ -99,9 +60,25 @@ class MyfileViewController: UIViewController, UIImagePickerControllerDelegate, U
             }
         })
         task.resume()
+        
     }
     
     
+
+    @IBAction func loaddetail(_ sender: Any) {
+        
+        if self.subject.count == 0{
+            print("do not move")
+        }else {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "Gpdetail")
+            show(vc!, sender: self)
+            
+        }
+  
+    }
+    
+    
+    //圖片使用照相機拍攝後的圖片或者本機端圖片
     @IBAction func takepic(_ sender: Any) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cameraAction = UIAlertAction(title: "use camera", style: .default, handler: {(action) in
@@ -148,33 +125,10 @@ class MyfileViewController: UIViewController, UIImagePickerControllerDelegate, U
             }
             present(imgPickGetVC, animated: true, completion: nil)
         }
-        
-        func imagePickerController(_picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
-            print("")
-            let imgTaken = info[UIImagePickerControllerOriginalImage] as! UIImage
-            imageView.image = imgTaken
-            
-            let imgData = UIImageJPEGRepresentation(imgTaken, 0.3)
-            
-            let imgDataBase64 = imgData?.base64EncodedData()
-            
-            imgDataBase64String = imgData?.base64EncodedString()
-            
-            dismiss(animated: true, completion: nil)
-        }
-        
-        func imagePickerControllerDidCancel(_picker: UIImagePickerController){
-            dismiss(animated: true, completion: nil)
-        }
-        
-        
-        
-        
-        
-        
+   
     }
     
-   
+      //swipe手勢功能
      @IBAction func handleSwipeGesture(_ sender: UISwipeGestureRecognizer) {
         switch sender.direction {
         case UISwipeGestureRecognizerDirection.left:
@@ -190,12 +144,71 @@ class MyfileViewController: UIViewController, UIImagePickerControllerDelegate, U
         default:
             return
         }
-        Mygroupimage.image = images[mygroupControl.currentPage]
-        groupname.text = self.subject[mygroupControl.currentPage]
+        if self.subject.count == 0 {
+            print("cannot swipe")
+        }else {
+            Mygroupimage.image = images[mygroupControl.currentPage]
+//            groupname.text = self.subject[mygroupControl.currentPage]
+            groupname.text = self.temptid[mygroupControl.currentPage]
+            app.tid = temptid[mygroupControl.currentPage]
+            print(app.tid)
+            
+        }
     }
     
+    
+    //讀取相片後將資料放入uiimage中 
+    //轉乘database64 配合放入mysql儲存
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
+        //print("99999")
+        let imgTaken = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        
+        takepictureBtn.setImage(imgTaken, for: .normal)
+        
+        let imgData = UIImageJPEGRepresentation(imgTaken, 0.3)
+        
+        let imgDataBase64 = imgData?.base64EncodedData()
+        
+        imgDataBase64String = imgData?.base64EncodedString()
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_picker: UIImagePickerController){
+        dismiss(animated: true, completion: nil)
+    }
+
+    
+    
+    
+    
+//    func imagePickerController(_picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
+//        //print("")
+//        let imgTaken = info[UIImagePickerControllerOriginalImage] as! UIImage
+//        //imageView.image = imgTaken
+//        takepictureBtn.setImage(imgTaken, for: .normal)
+//        
+//        let imgData = UIImageJPEGRepresentation(imgTaken, 0.3)
+//        
+//        let imgDataBase64 = imgData?.base64EncodedData()
+//        
+//        imgDataBase64String = imgData?.base64EncodedString()
+//        
+//        dismiss(animated: true, completion: nil)
+//    }
+//    
+//    func imagePickerControllerDidCancel(_picker: UIImagePickerController){
+//        dismiss(animated: true, completion: nil)
+//    }
+
+    
+    //讀取個人資料
+    
     func loadDB(){
-        if let mid = String("8RM5OZY7f4cmj2YVPbN9eOIocm42") {
+        Myfilemid = app.mid
+        
+        if let mid = Myfilemid {
             
             //c9資料庫 post
             let url = URL(string: "https://together-seventsai.c9users.io/loadDatafromtable.php")
@@ -213,6 +226,8 @@ class MyfileViewController: UIViewController, UIImagePickerControllerDelegate, U
                 //                print(source!)
                 
                 DispatchQueue.main.async {
+                    
+                
                     do{
                         
                         
@@ -221,23 +236,43 @@ class MyfileViewController: UIViewController, UIImagePickerControllerDelegate, U
                         for a in  jsonobj as! [[String:String]] {
                             var nickname = a["nickname"]!
                             var description = a["description"]
-                            
+                            var personalpic = a["personalpic"]!
                             self.nameText.text = nickname
                             self.testlabel.text = description
+                            
+                            do{
+                                let url = URL(string:"\(personalpic)")
+                                
+                                //  print("222\(url)")
+                                
+                                if url != nil {
+                                    let data = try Data(contentsOf: url!)
+                                    if (UIImage(data: data) != nil) {
+                                        print("OK")
+                                        self.takepictureBtn.setImage(UIImage(data: data)!, for: .normal)
+                                    }else {
+                                        self.takepictureBtn.setImage(UIImage(named: "question.jpg")!, for: .normal)
+                                        print("xx")
+                                    }
+                                    
+                                }
+                                else {
+                                    print("ok")
+                                    self.takepictureBtn.setImage(UIImage(named: "question.jpg")!, for: .normal)
+                                }
+                            }catch{
+                                print(error)
+                                self.takepictureBtn.setImage(UIImage(named: "question.jpg")!, for: .normal)
+                            }
+
                             
                             print("987654")
                         }
                         
-                        
-                        //self.tbView.reloadData()
-                        
                     }catch {
                         print("thisis \(error)")
-                    }}
-                
-                
-                
-                
+                    }
+                }
                 
             })
             
@@ -245,7 +280,6 @@ class MyfileViewController: UIViewController, UIImagePickerControllerDelegate, U
             
             }else {
             
-            //沒輸入帳號直接跑到的話 給他一個假帳號
             print("no account")
             
             
@@ -253,13 +287,15 @@ class MyfileViewController: UIViewController, UIImagePickerControllerDelegate, U
         
     }
     
+    
+    //讀取開團資料
     func loadmygroup(){
         
-        
-        if let mid = String("8RM5OZY7f4cmj2YVPbN9eOIocm42") {
+        Myfilemid = app.mid
+        if let mid = Myfilemid {
             
             //c9資料庫 post
-            let url = URL(string: "https://together-seventsai.c9users.io/loadtogetherdb.php")
+            let url = URL(string: "https://together-seventsai.c9users.io/myprofiletogether.php")
             let session = URLSession(configuration: .default)
             
             
@@ -273,28 +309,39 @@ class MyfileViewController: UIViewController, UIImagePickerControllerDelegate, U
                 
                 //                print(source!)
                 
-                DispatchQueue.main.async {
+//                DispatchQueue.main.async {
                     do{
                         
                         
                         let jsonobj = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
-                        
+                        var counter = 0
                         for a in  jsonobj as! [[String:String]] {
-                            
-                            //var varsubjectpic = (a["subjectpic"]!)
-                            self.subjectpic.append(a["subjectpic"])
-                            self.subject.append(a["tid"]!)                            //print(self.subjectpic)
-                            
+//                            if counter >= 5 {
+//                                break
+//                            }
+                            self.subjectpic.append(a["subjectpic"]!)
+                            self.subject.append(a["subject"]!)
+                            self.temptid.append(a["tid"]!)
+//                            print("我是揪團ＩＤ：\(self.temptid)")
+//                            counter += 1
                             
                         }
                         sleep(1)
-                        self.putimage()
-                        print("我是紗布傑克\(self.subject)")
-                        //self.tbView.reloadData()
+                        
+                        print("我是選擇的揪團：\(self.temptid)")
+                        if self.subject.count == 0{
+
+                            print("nothing here1")
+                        }else {
+                            DispatchQueue.main.async {
+                              self.putimage()
+                            }
+                        }
                         
                     }catch {
                         print("thisis \(error)")
-                    }}
+                    }
+//                }
                 
             })
             
@@ -302,72 +349,67 @@ class MyfileViewController: UIViewController, UIImagePickerControllerDelegate, U
             
         }else {
             
-            //沒輸入帳號直接跑到的話 給他一個假帳號
             print("no account")
-            
             
         }
     }
     
+    
+    //將陣列中的字串轉成圖片資料
     func putimage() {
-        
-        
-        
-                
+
                 for i in 0..<self.subjectpic.count {
                     
                     var temp = self.subjectpic[i] as? String ?? ""
                     //print(type(of:temp))
-                    //print(temp)
+                    print(temp)
 //                    if temp != "" {
                      do{
                         let url = URL(string:"\(temp)")
                         
+                      //  print("222\(url)")
+                        
                         if url != nil {
                             let data = try Data(contentsOf: url!)
-                            images.append(UIImage(data: data)!)
-                        }
-                        //let data = try Data(contentsOf: url!)
-                        //images.append(UIImage(data: data)!)
-                        
-                        
-//                    }else {
-//                        print("ok")
-//                        images.append(UIImage(named: "question.jpg")!)
-//                    }
+                            if (UIImage(data: data) != nil) {
+                                print("OK")
+                                images.append(UIImage(data: data)!)
+                            }else {
+                                images.append(UIImage(named: "question.jpg")!)
+                                print("xx")
+                            }
+                            
+                       }
+                            else {
+                        print("ok")
+                        images.append(UIImage(named: "question.jpg")!)
+                       }
                      }catch{
                         print(error)
                         images.append(UIImage(named: "question.jpg")!)
-                    }
-                
-                
-                
-                
-                
+                        }
+//        }else {
+//                        images.append(UIImage(named: "question.jpg")!)
+//                    }
+      
             }
         
         
-        
-        //print(subjectpic)
-        //print(images)
-        Mygroupimage.image = images[0]
-        groupname.text =  self.subject[0]
-        mygroupControl.numberOfPages = images.count
-        
+        DispatchQueue.main.async {
+            //print(subjectpic)
+            //print(images)
+            self.Mygroupimage.image = self.images[0]
+            ////先以揪團ＴＩＤ顯示
+            //        groupname.text =  self.subject[0]
+            self.groupname.text =  self.temptid[0]
+            
+            self.app.tid = self.temptid[0]
+            self.mygroupControl.numberOfPages = self.images.count
+            
+        }
+       
         
     }
-    
-    func loadimages(){
-        print(images)
-    }
-    
-    
-    
-    
-   
-    
-    
-    
     
     //let vc = storyboard?.instantiateViewController(withIdentifier: "Gpdetail")
     //show(vc!, sender: self)
@@ -377,17 +419,18 @@ class MyfileViewController: UIViewController, UIImagePickerControllerDelegate, U
         loadDB()
         loadmygroup()
         //putimage()
+        //self.loadDetail.isEnabled = false
+        let layer = takepictureBtn.layer
+        layer.cornerRadius = 20.0
+        layer.masksToBounds = true
+        
+        let groupViewLayer = Mygroupimage.layer
+        groupViewLayer.cornerRadius = 20.0
+        groupViewLayer.masksToBounds = true
+        
         print(self.subject)
         print(app.mid)
         
-//        DispatchQueue.global().sync {
-//            putimage()
-//        }
-//        DispatchQueue.global().async {
-//            sleep(2)
-//            self.loadimages()
-//        }
-        //print(app.subjectpic)
         // Do any additional setup after loading the view.
     }
 
@@ -408,3 +451,67 @@ class MyfileViewController: UIViewController, UIImagePickerControllerDelegate, U
     */
 
 }
+
+
+//    @IBAction func editBtn(_ sender: Any) {
+//
+//        let nickname = nameText.text!
+//        let description = testlabel.text!
+//
+//        let q = DispatchQueue.global()
+//        q.sync {
+//            do {
+//
+//                let url = URL(string: "https://together-seventsai.c9users.io/resumeEdit.php")
+//                let session = URLSession(configuration: .default)
+//                var request = URLRequest(url:url!)
+//                request.httpBody = "account=\(self.app.account!)&nickname=\(nickname)&description=\(description)".data(using: .utf8)
+//                request.httpMethod = "POST"
+//
+//                let task = session.dataTask(with: request, completionHandler: {(data, response , error) in
+//
+//                    if  error != nil {
+//                        print("gg")
+//                    }else{
+//                        print("success")
+//
+//                    }
+//
+//                })
+//
+//                task.resume()
+//
+//            }catch{
+//                print(error)
+//            }
+//
+//        }
+//        q.async {
+//            sleep(1)
+//            self.loadDB()
+//        }
+//
+//    }
+
+//    @IBOutlet weak var loadDetail: UIButton!
+
+//    @IBAction func uploadsubmit(_ sender: Any) {
+//
+//        personalpic = imgDataBase64String
+//        let url = URL(string: "https://together-seventsai.c9users.io/personalfileSavePic.php")
+//        let session = URLSession(configuration: .default)
+//        var req = URLRequest(url: url!)
+//        req.httpBody = "account=\(app.account!)&data=\(personalpic!)".data(using:.utf8)
+//        req.httpMethod = "POST"
+//        let task = session.dataTask(with: req, completionHandler: {(data,response,error) in
+//            if error == nil {
+//                print("add success")
+//                print(data)
+//            }else{
+//                print(error)
+//            }
+//        })
+//        task.resume()
+//    }
+
+

@@ -23,17 +23,20 @@ class registerViewController: UIViewController {
     
     @IBOutlet weak var passwordText: UITextField!
     
+    @IBOutlet weak var nicknameText: UITextField!
+    
+    
     @IBAction func registerBtn(_ sender: Any) {
         
         let url = URL(string: "https://together-seventsai.c9users.io/addMemberv2.php")
         var request = URLRequest(url: url!)
-        if emailText.text != "" && passwordText.text != "" {
+        if emailText.text != "" && passwordText.text != "" && nicknameText.text != ""{
             
             passwordText.isSecureTextEntry = true
             
             let account = emailText.text!
             let passwd = passwordText.text!
-            
+            let nickname = nicknameText.text!
             
             Auth.auth().createUser(withEmail: self.emailText.text!, password: self.passwordText.text!) { (user, error) in
                 if error != nil {
@@ -46,7 +49,7 @@ class registerViewController: UIViewController {
                     let mid = self.app.mid!
                     
                     do {
-                        let urlGet = URL(string: "https://together-seventsai.c9users.io/addMemberv2.php?account=\(account)&passwd=\(passwd)&mid=\(mid)")
+                        let urlGet = URL(string: "https://together-seventsai.c9users.io/addMemberv2.php?account=\(account)&passwd=\(passwd)&mid=\(mid)&nickname=\(nickname)")
                         let source = try String(contentsOf: urlGet!, encoding: .utf8)
                         
                         if source == "accountok" {
@@ -97,7 +100,7 @@ class registerViewController: UIViewController {
     //alert 空白
     func alertEmpty() {
         
-        let alertController = UIAlertController(title: "帳號申請/登入", message: "不能空白喔！", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "帳號申請/登入/暱稱", message: "不能空白喔！", preferredStyle: .alert)
         let okaction = UIAlertAction(title: "確認", style: .default, handler: {(action) in
             self.dismiss(animated: true, completion: nil)
             
@@ -139,8 +142,8 @@ class registerViewController: UIViewController {
         
         
         func go(){
-            
-            let vc = storyboard?.instantiateViewController(withIdentifier: "mapandlistvc")
+            ////幫修改為tabbarvc
+            let vc = storyboard?.instantiateViewController(withIdentifier: "tabbarvc")
             show(vc!, sender: self)
         }
         

@@ -12,8 +12,8 @@ class resultListTbCell: UITableViewCell {
 
     @IBOutlet weak var groupTitle: UILabel!
     @IBOutlet weak var groupContent: UILabel!
+    @IBOutlet weak var groupClass: UILabel!
     @IBOutlet weak var groupStatus: UILabel!
-    @IBOutlet weak var groupDistance: UILabel!
     
     
     override func awakeFromNib() {
